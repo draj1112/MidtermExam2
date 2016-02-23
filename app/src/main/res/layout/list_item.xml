@@ -6,7 +6,7 @@
     <!-- Book Name -->
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/bookname"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="2dip"
