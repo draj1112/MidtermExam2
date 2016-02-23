@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Created by danica12 on 2/23/2016.
  */
 public class BookAPI {
-    public static final String BASE_URL     = "http://172.17.3.51:5856";
+    public static final String BASE_URL     = "http://joseniandroid.herokuapp.com";
     //public static final String IMG_BASE_URL = "http://openweathermap.org/img/w/";
 
     public static final int SUCCESS_CODE = 200;

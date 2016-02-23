@@ -1,25 +1,30 @@
 package com.example.jonesdanica.midtermexam2;
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.example.jonesdanica.midtermexam2.adapters.BookAdapter;
 import com.example.jonesdanica.midtermexam2.api.BookAPI;
 import com.example.jonesdanica.midtermexam2.entities.Book;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends AppCompatActivity {
 
     private ListView listView;
-    private TextView bookName;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,12 +63,13 @@ public class MainActivity extends ListActivity {
         @Override
         protected void onPostExecute( ArrayList<Book> booklist) {
 
-            ListAdapter adapter = new SimpleAdapter(
-                    MainActivity.this, booklist,
-                    R.layout.list_item, new String[] { booklist.get(0).getTitle() },
-                    new int[] { R.id.bookname });
+            BookAdapter adapter = new BookAdapter(
+                    MainActivity.this,
+                    R.layout.list_item, booklist);
 
-            setListAdapter(adapter);
+            listView.setAdapter(adapter);
+
+
         }
     }
 }
