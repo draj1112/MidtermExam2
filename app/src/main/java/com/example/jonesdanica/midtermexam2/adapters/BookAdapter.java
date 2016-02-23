@@ -20,14 +20,14 @@ public class BookAdapter  extends ArrayAdapter<Book> {
 
         private Context mContext;
         private int         mLayoutId;
-        private List<Book> mMovies;
+        private List<Book> mBooklist;
 
         public BookAdapter(Context context, int resource, List<Book> booklist) {
             super(context, resource, booklist);
 
             mContext = context;
             mLayoutId = resource;
-            mMovies = booklist;
+            mBooklist = booklist;
         }
 
         @Override
@@ -47,17 +47,17 @@ public class BookAdapter  extends ArrayAdapter<Book> {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
 
-            // Set the movie data
-            Book movie = mMovies.get(position);
+            // Set the book data
+            Book book = mBooklist.get(position);
 
-            if (movie != null) {
+            if (book != null) {
                 if (viewHolder.tvBookTitle != null) {
-                    if (movie.isRead()) {
-                        viewHolder.tvBookTitle.setText(movie.getTitle());
+                    if (book.isRead()) {
+                        viewHolder.tvBookTitle.setText(book.getTitle());
                         viewHolder.tvBookTitle.setTextColor(Color.parseColor("#B0171F"));
                     }
                     else {
-                        viewHolder.tvBookTitle.setText(movie.getTitle());
+                        viewHolder.tvBookTitle.setText(book.getTitle());
                         viewHolder.tvBookTitle.setTextColor(Color.parseColor("#43bd00"));
                     }
                 }
