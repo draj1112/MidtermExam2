@@ -1,9 +1,8 @@
 package com.example.jonesdanica.midtermexam2.api;
-
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.example.jonesdanica.midtermexam2.entities.Book;
 import com.example.jonesdanica.midtermexam2.utils.HttpUtils;
@@ -47,8 +46,8 @@ public class BookAPI {
                 String title = jsonObject.getString(TAG_TITLE);
                 boolean isRead = jsonObject.getBoolean(TAG_ISREAD);
                 booklist.add(new Book(title, isRead));
+                Log.d("DANICA", jsonObject.toString());
             }
-
                 return booklist;
         } catch (JSONException e) {
             e.printStackTrace();
